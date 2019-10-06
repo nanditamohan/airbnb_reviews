@@ -18,7 +18,7 @@ with open('complete_reviews.csv') as airbnb_reviews:
         if(old_id != row[0]):
             listing_count +=1
             old_id = row[0]
-        if listing_count<50:
+        if listing_count<20:
             data_row.append(row[0])
             data_row.append(row[1])
             blob = TextBlob(row[2])
@@ -30,7 +30,7 @@ with open('complete_reviews.csv') as airbnb_reviews:
         count+=1
         csv_data.append(data_row)
 airbnb_reviews.close()
-with open('polarity.csv', 'w') as csv_file:
+with open('polarity20.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     writer.writerows(csv_data)
 csv_file.close()
